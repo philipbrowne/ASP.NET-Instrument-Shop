@@ -11,6 +11,16 @@ namespace InstrumentShop.Data
         {
             _context = context;
         }
+
+        public void CreateInstrument(Instrument inst)
+        {
+            if(inst == null)
+            {
+                throw new ArgumentNullException(nameof(inst));
+            }
+            _context.Instruments.Add(inst);
+        }
+
         public IEnumerable<Instrument> GetAllInstruments()
         {
             return _context.Instruments.ToList();
@@ -19,6 +29,11 @@ namespace InstrumentShop.Data
         public Instrument GetInstrumentById(int id)
         {
             return _context.Instruments.FirstOrDefault(p => p.Id == id);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
         }
     }
 }
