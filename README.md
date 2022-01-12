@@ -1,4 +1,4 @@
-# Musical Instrument Shop API
+# Musical Instrument Shop RESTful API
 
 ## Routes
 
