@@ -13,6 +13,7 @@ namespace InstrumentShop.Profiles
             CreateMap<Instrument, InstrumentReadDto>();
             CreateMap<InstrumentCreateDto, Instrument>();
             CreateMap<InstrumentUpdateDto, Instrument>();
+            CreateMap<Instrument, InstrumentUpdateDto>();
         }
     }
 }
