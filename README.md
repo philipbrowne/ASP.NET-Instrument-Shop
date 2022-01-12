@@ -48,7 +48,7 @@
         "price" : 3496.43
     }
 
-    Returns
+Returns
 
     {
     "id": 5,
