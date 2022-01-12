@@ -39,3 +39,11 @@
     "family": "Brass",
     "price": 12999.99
     }
+
+**POST /api/isntruments** - Create a new instrument
+
+    {
+        "name" : "Tuba,
+        "family" : "Brass",
+        "price" : 3496.43
+    }

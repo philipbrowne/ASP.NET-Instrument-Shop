@@ -29,7 +29,7 @@ namespace InstrumentShop.Controllers
             return Ok(_mapper.Map<IEnumerable<InstrumentReadDto>>(instrumentItems));
         }
         // GET api/instruments/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name="GetInstrumentById")]
         public ActionResult <InstrumentReadDto> GetInstrumentById(int id)
         {
             var instrumentItem = _repository.GetInstrumentById(id);
@@ -45,7 +45,9 @@ namespace InstrumentShop.Controllers
             var instrumentModel = _mapper.Map<Instrument>(instrumentCreateDto);
             _repository.CreateInstrument(instrumentModel);
             _repository.SaveChanges();
-            return Ok(instrumentModel);
+            var instrumentReadDto = _mapper.Map<InstrumentReadDto>(instrumentModel);
+            return CreatedAtRoute(nameof(GetInstrumentById), new { Id = instrumentReadDto.Id }, instrumentReadDto);
+            // return Ok(instrumentReadDto);
         } 
     }
 }
