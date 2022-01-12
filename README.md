@@ -39,3 +39,12 @@
     "family": "Brass",
     "price": 12999.99
     }
+
+## Deployment
+
+To deploy locally (dotnet required), you need to clone the repository and then initiate dotnet run.
+
+    git clone https://github.com/philipbrowne/ASP.NET-Instrument-Shop
+    dotnet run
+
+Then open http://localhost:5243/api/instruments
