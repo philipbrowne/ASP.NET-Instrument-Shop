@@ -2,6 +2,7 @@ using AutoMapper;
 using InstrumentShop.Data;
 using InstrumentShop.Dtos;
 using InstrumentShop.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InstrumentShop.Controllers 
@@ -59,6 +60,27 @@ namespace InstrumentShop.Controllers
                 return NotFound();
             }
             _mapper.Map(instrumentUpdateDto, instrumentModelFromRepo);
+            _repository.UpdateInstrument(instrumentModelFromRepo);
+            _repository.SaveChanges();
+            return NoContent();
+        }
+
+        //PATCH api/instruments/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialInstrumentUpdate(int id, JsonPatchDocument<InstrumentUpdateDto> patchDoc)
+        {
+            var instrumentModelFromRepo = _repository.GetInstrumentById(id);
+            if (instrumentModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            var instrumentToPatch = _mapper.Map<InstrumentUpdateDto>(instrumentModelFromRepo);
+            patchDoc.ApplyTo(instrumentToPatch, ModelState);
+            if (!TryValidateModel(instrumentToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+            _mapper.Map(instrumentToPatch, instrumentModelFromRepo);
             _repository.UpdateInstrument(instrumentModelFromRepo);
             _repository.SaveChanges();
             return NoContent();

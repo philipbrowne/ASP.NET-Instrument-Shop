@@ -46,7 +46,7 @@ Returns:
 
 **POST /api/isntruments** - Create a new instrument
 
-Request Body:
+Example Request Body:
 
     {
         "name" : "Tuba,
@@ -65,12 +65,22 @@ Returns:
 
 **PUT /api/instruments/{id}** - Updates an existing instrument by Id
 
-Request Body:
+Example Request Body:
 
     {
         "name" : "Tuba,
         "family" : "Brass",
         "price" : 9943.43
+    }
+
+Returns 204 No Content
+
+**PATCH /api/instruments/{id}** - Partially updates an existing instrument by ID
+
+Example Request Body:
+
+    {
+        "price" : 9934.34
     }
 
 Returns 204 No Content
