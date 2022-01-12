@@ -4,6 +4,8 @@
 
 **GET /api/instruments** - Returns a list of all instruments
 
+Returns:
+
     [
         {
         "id": 1,
@@ -33,6 +35,8 @@
 
 **GET /api/instrument/{id}** - Returns an instrument by ID
 
+Returns:
+
     {
     "id": 1,
     "name": "French Horn",
@@ -42,13 +46,15 @@
 
 **POST /api/isntruments** - Create a new instrument
 
+Request Body:
+
     {
         "name" : "Tuba,
         "family" : "Brass",
         "price" : 3496.43
     }
 
-Returns
+Returns:
 
     {
     "id": 5,
