@@ -35,5 +35,9 @@ namespace InstrumentShop.Data
         {
             return (_context.SaveChanges() >= 0);
         }
+
+        public void UpdateInstrument(Instrument inst)
+        {
+        }
     }
 }

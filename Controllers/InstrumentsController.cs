@@ -49,5 +49,19 @@ namespace InstrumentShop.Controllers
             return CreatedAtRoute(nameof(GetInstrumentById), new { Id = instrumentReadDto.Id }, instrumentReadDto);
             // return Ok(instrumentReadDto);
         } 
+        // PUT /api/instruments/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateInstrument(int id, InstrumentUpdateDto instrumentUpdateDto)
+        {
+            var instrumentModelFromRepo = _repository.GetInstrumentById(id);
+            if (instrumentModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            _mapper.Map(instrumentUpdateDto, instrumentModelFromRepo);
+            _repository.UpdateInstrument(instrumentModelFromRepo);
+            _repository.SaveChanges();
+            return NoContent();
+        }
     }
 }

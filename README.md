@@ -62,3 +62,15 @@ Returns:
     "family" : "Brass",
     "price" : 3496.43
     }
+
+**PUT /api/instruments/{id}** - Updates an existing instrument by Id
+
+Request Body:
+
+    {
+        "name" : "Tuba,
+        "family" : "Brass",
+        "price" : 9943.43
+    }
+
+Returns 204 No Content

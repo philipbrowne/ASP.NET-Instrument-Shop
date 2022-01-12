@@ -8,6 +8,7 @@ namespace InstrumentShop.Data
         IEnumerable<Instrument> GetAllInstruments();
         Instrument GetInstrumentById(int id);
         void CreateInstrument(Instrument inst);
+        void UpdateInstrument(Instrument inst);
 
     }
 }

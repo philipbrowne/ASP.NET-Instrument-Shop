@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InstrumentShop.Dtos 
 {
-    public class InstrumentCreateDto 
+    public class InstrumentUpdateDto 
     {
         [Required]
         [MaxLength(250)]
