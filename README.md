@@ -75,7 +75,7 @@ Example Request Body:
 
 Returns 204 No Content
 
-**PATCH /api/instruments/{id}** - Partially updates an existing instrument by ID
+**PATCH /api/instruments/{id}** - Partially updates an existing instrument by ID per guidelines on http://jsonpatch.com/
 
 Example Request Body:
 
