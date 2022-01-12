@@ -88,3 +88,7 @@ Example Request Body:
     ]
 
 Returns 204 No Content
+
+**DELETE /api/instruments{id}** - Deletes an existing instrument
+
+Returns 204 No Content

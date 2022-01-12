@@ -21,6 +21,15 @@ namespace InstrumentShop.Data
             _context.Instruments.Add(inst);
         }
 
+        public void DeleteInstrument(Instrument inst)
+        {
+            if(inst == null)
+            {
+                throw new ArgumentNullException(nameof(inst));
+            }
+            _context.Instruments.Remove(inst);
+        }
+
         public IEnumerable<Instrument> GetAllInstruments()
         {
             return _context.Instruments.ToList();

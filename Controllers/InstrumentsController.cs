@@ -22,14 +22,14 @@ namespace InstrumentShop.Controllers
             _mapper = mapper;
         }
         
-        // GET api/instruments/
+        // GET /api/instruments/
         [HttpGet]
         public ActionResult <IEnumerable<InstrumentReadDto>> GetAllInstruments()
         {
             var instrumentItems = _repository.GetAllInstruments();
             return Ok(_mapper.Map<IEnumerable<InstrumentReadDto>>(instrumentItems));
         }
-        // GET api/instruments/{id}
+        // GET /api/instruments/{id}
         [HttpGet("{id}", Name="GetInstrumentById")]
         public ActionResult <InstrumentReadDto> GetInstrumentById(int id)
         {
@@ -39,7 +39,7 @@ namespace InstrumentShop.Controllers
             }
             return NotFound();
         }
-        // POST api/instruments/
+        // POST /api/instruments/
         [HttpPost]
          public ActionResult <InstrumentReadDto> CreateInstrument(InstrumentCreateDto instrumentCreateDto)
         {
@@ -65,7 +65,7 @@ namespace InstrumentShop.Controllers
             return NoContent();
         }
 
-        //PATCH api/instruments/{id}
+        //PATCH /api/instruments/{id}
         [HttpPatch("{id}")]
         public ActionResult PartialInstrumentUpdate(int id, JsonPatchDocument<InstrumentUpdateDto> patchDoc)
         {
@@ -82,6 +82,19 @@ namespace InstrumentShop.Controllers
             }
             _mapper.Map(instrumentToPatch, instrumentModelFromRepo);
             _repository.UpdateInstrument(instrumentModelFromRepo);
+            _repository.SaveChanges();
+            return NoContent();
+        }
+        //DELETE api/instruments/
+        [HttpDelete("{id}")]
+        public ActionResult DeleteInstrument(int id)
+        {
+            var instrumentModelFromRepo = _repository.GetInstrumentById(id);
+            if (instrumentModelFromRepo == null)
+            {
+                return NotFound();
+            }
+            _repository.DeleteInstrument(instrumentModelFromRepo);
             _repository.SaveChanges();
             return NoContent();
         }

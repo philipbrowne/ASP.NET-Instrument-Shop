@@ -9,6 +9,6 @@ namespace InstrumentShop.Data
         Instrument GetInstrumentById(int id);
         void CreateInstrument(Instrument inst);
         void UpdateInstrument(Instrument inst);
-
+        void DeleteInstrument(Instrument inst);
     }
 }
