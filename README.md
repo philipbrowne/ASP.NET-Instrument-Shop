@@ -79,8 +79,12 @@ Returns 204 No Content
 
 Example Request Body:
 
-    {
-        "price" : 9934.34
-    }
+    [
+        {
+            "op": "replace",
+            "path": "price",
+            "value": 200.00
+        }
+    ]
 
 Returns 204 No Content
