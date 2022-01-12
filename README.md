@@ -47,3 +47,12 @@
         "family" : "Brass",
         "price" : 3496.43
     }
+
+    Returns
+
+    {
+    "id": 5,
+    "name" : "Tuba,
+    "family" : "Brass",
+    "price" : 3496.43
+    }
