@@ -1,5 +1,9 @@
 # Musical Instrument Shop RESTful API
 
+## Deployment
+
+Project Deployed at https://instrumentshop.herokuapp.com
+
 ## Routes
 
 **GET /api/instruments** - Returns a list of all instruments
