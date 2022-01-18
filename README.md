@@ -2,7 +2,7 @@
 
 ## Deployment
 
-Project Deployed at https://instrumentshop.herokuapp.com
+Project Deployed at https://instrumentshop.herokuapp.com/api/instruments
 
 ## Routes
 
